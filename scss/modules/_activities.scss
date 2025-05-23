@@ -1,0 +1,44 @@
+@use '_colors.scss' as *;
+@use '_mixins.scss' as *;
+
+
+.activities {
+  background-color: $light-gray;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  &__item {
+    background-color: $white;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+      display: block;
+      border: 2px solid $primary;
+    }
+
+    span {
+      display: block;
+      font-weight: 500;
+      color: $dark-gray;
+    }
+  }
+}

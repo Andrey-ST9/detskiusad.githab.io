@@ -1,0 +1,55 @@
+@use 'colors' as *;
+@use 'mixins';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $white;
+  z-index: 1000;
+  
+  &__inner {
+    @include mixins.grid-container(3, 20px);
+    align-items: center;
+    padding: 15px 0;
+  }
+
+  &__logo {
+    @include mixins.grid-item(1, 2);
+    img {
+      height: 50px;
+      width: auto;
+    }
+  }
+
+  &__nav {
+    @include mixins.grid-item(2, 3);
+    ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 15px;
+      list-style: none;
+    }
+  }
+
+  &__contacts {
+    @include mixins.grid-item(3, 4);
+    display: grid;
+    grid-auto-flow: column;
+    gap: 15px;
+    justify-content: end;
+  }
+
+  @include mixins.tablet {
+    &__nav {
+      display: none;
+    }
+    &__inner {
+      grid-template-columns: 1fr auto;
+    }
+    &__contacts {
+      @include mixins.grid-item(2, 3);
+    }
+  }
+}

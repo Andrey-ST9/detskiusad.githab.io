@@ -1,0 +1,41 @@
+@use 'colors' as *;
+@use 'mixins';
+
+.benefits {
+  background-color: $light-gray;
+
+  &__list {
+    @include mixins.grid-container(3, 30px);
+    margin-top: 40px;
+
+    @include mixins.tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mixins.mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 15px;
+    background-color: $white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+
+  &__icon {
+    width: 60px;
+    height: 60px;
+    place-self: center;
+    background-color: rgba($primary, 0.1);
+    color: $primary;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+  }
+}

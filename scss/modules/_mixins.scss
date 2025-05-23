@@ -1,0 +1,38 @@
+@use '_colors.scss' as *;
+
+@mixin grid-container($columns: 12, $gap: 20px) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+@mixin grid-item($col-start: auto, $col-end: auto, $row-start: auto, $row-end: auto) {
+  grid-column: $col-start / $col-end;
+  grid-row: $row-start / $row-end;
+}
+
+@mixin button($bg: $primary, $color: $white) {
+  display: inline-grid;
+  place-items: center;
+  padding: 10px 20px;
+  background-color: $bg;
+  color: $color;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: darken($bg, 10%);
+    transform: translateY(-2px);
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 1024px) { @content; }
+}
+
+@mixin mobile {
+  @media (max-width: 768px) { @content; }
+}

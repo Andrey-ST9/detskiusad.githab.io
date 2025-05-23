@@ -1,0 +1,38 @@
+@use '_colors.scss' as *;
+@use '_mixins.scss' as *;
+
+.nutrition {
+  background-color: $white;
+
+  &__gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 30px 0;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+  }
+
+  &__item {
+    background-color: $light-gray;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    position: relative;
+    padding-left: 40px;
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 15px;
+      color: $primary;
+      font-weight: bold;
+    }
+  }
+}

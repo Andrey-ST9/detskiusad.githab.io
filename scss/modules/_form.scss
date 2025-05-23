@@ -1,0 +1,78 @@
+@use '_colors.scss' as *;
+@use '_mixins.scss' as *;
+
+.form-section {
+  background-color: $light-gray;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+}
+
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: $white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+
+  &__group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: $dark-gray;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: $primary;
+      outline: none;
+    }
+  }
+
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+  }
+
+  [type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+  }
+
+  .error-message {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+  }
+
+  .success-message {
+    background-color: $primary;
+    color: $white;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  @include mobile {
+    padding: 30px 20px;
+  }
+}

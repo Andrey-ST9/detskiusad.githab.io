@@ -1,0 +1,39 @@
+@use 'colors' as *;
+@use 'mixins';
+
+.reviews {
+  background-color: $white;
+
+  &__slider {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 800px;
+    margin: 40px auto 0;
+  }
+
+  .review {
+    display: grid;
+    gap: 15px;
+    background-color: $light-gray;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+
+  &__controls {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    
+    button {
+      @include mixins.button;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      padding: 0;
+    } 
+} 
+}

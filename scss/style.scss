@@ -1,0 +1,108 @@
+@use 'modules/colors' as *;
+@use 'modules/mixins';
+@use 'modules/header';
+@use 'modules/benefits';
+@use 'modules/groups';
+@use 'modules/gallery';
+@use 'modules/nutrition';
+@use 'modules/activities';
+@use 'modules/reviews';
+@use 'modules/footer';
+@use 'modules/form';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: $bg-color;
+  color: $text-color;
+  line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn {
+  @include mixins.button;
+}
+
+.btn-primary {
+  @include mixins.button($primary, $white);
+}
+.photo-slider {
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.slider-prev, .slider-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.7);
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slider-prev {
+  left: 15px;
+}
+
+.slider-next {
+  right: 15px;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.slider-dot.active {
+  background: #4CAF50;
+}
